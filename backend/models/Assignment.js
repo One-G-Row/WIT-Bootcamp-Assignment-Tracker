@@ -17,6 +17,7 @@ const assignmentSchema = new mongoose.Schema({
     }, 
     github_url: {
         type: String,
+        validator: value => validator.isURL(value, { protocols: ['http','https','ftp'], require_tld: true, require_protocol: true }),
         maxLength: 100,
         required: true
     }
